@@ -3,3 +3,7 @@
 # Install Neovim config
 stow -D nvim
 stow nvim
+
+# Install tmux config
+stow -D tmux
+stow tmux
