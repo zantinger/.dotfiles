@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Install Neovim config
+stow -D nvim
+stow nvim
