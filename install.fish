@@ -36,8 +36,8 @@ function install_npm_packages
 end
 
 # run scripts
-#install_stow
-#clean_nvim
-#clone_packer
+install_stow
+clean_nvim
+clone_packer
 uninstall_npm_packages
 install_npm_packages
