@@ -1,8 +1,10 @@
 return require('packer').startup(function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
-    use 'morhetz/gruvbox'
+  use 'morhetz/gruvbox'
   use 'tpope/vim-fugitive'
+  use 'tpope/vim-commentary'
+  use 'tpope/vim-unimpaired'
   use {
     'nvim-telescope/telescope.nvim',
     requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
@@ -17,10 +19,6 @@ return require('packer').startup(function()
       'prettier/vim-prettier', 
       run = 'yarn install' 
   } 
-  use 'tpope/vim-commentary'
-  use 'tpope/vim-unimpaired'
-  use 'SirVer/ultisnips'
-  use 'honza/vim-snippets'
   use 'mattn/emmet-vim'
-  use 'nelsyeung/twig.vim'
+  use 'dag/vim-fish'
 end)
