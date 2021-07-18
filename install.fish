@@ -35,9 +35,15 @@ function install_npm_packages
      vls
 end
 
+function create_symlinks
+  stow -D nvim
+  stow nvim
+end
+
 # run scripts
 install_stow
 clean_nvim
 clone_packer
 uninstall_npm_packages
 install_npm_packages
+create_symlinks
