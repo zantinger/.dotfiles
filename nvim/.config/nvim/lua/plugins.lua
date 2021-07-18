@@ -21,4 +21,5 @@ return require('packer').startup(function()
   } 
   use 'mattn/emmet-vim'
   use 'dag/vim-fish'
+  use 'glepnir/lspsaga.nvim'
 end)

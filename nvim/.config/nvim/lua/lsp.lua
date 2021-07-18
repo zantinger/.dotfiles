@@ -4,6 +4,11 @@ local nvim_lsp = require('lspconfig')
 -- and map buffer local keybindings when the language server attaches
 local servers = { "tsserver", "html","cssls", "vuels" }
 
+--Enable (broadcasting) snippet capability for completion
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+
 for _, lsp in ipairs(servers) do
   local filetypes = 0
 
@@ -14,9 +19,12 @@ for _, lsp in ipairs(servers) do
   end
 
   nvim_lsp[lsp].setup {
-    filetypes,
+    filetypes = filetypes,
+    capabilities = capabilities,
     on_attach = require'completion'.on_attach
   }
 end
 
 
+local saga = require 'lspsaga'
+saga.init_lsp_saga()
