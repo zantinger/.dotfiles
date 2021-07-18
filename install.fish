@@ -36,14 +36,20 @@ function install_npm_packages
 end
 
 function create_symlinks
-  stow -D nvim
-  stow nvim
+  echo "create symlinks..."
+  stow -R nvim fish alacritty
+end
+
+function install_starship
+  sudo apt install fonts-firacode
+  curl -fsSL https://starship.rs/install.sh | bash
 end
 
 # run scripts
-install_stow
+#install_stow
 clean_nvim
 clone_packer
 uninstall_npm_packages
 install_npm_packages
 create_symlinks
+install_starship
