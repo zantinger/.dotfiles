@@ -2,54 +2,45 @@
 
 function install_stow
   if command -v stow > /dev/null
-    echo "package stow is already installed..."
   else 
-    echo "need to install stow..."
     sudo apt install stow
   end
 end
 
-function clean_nvim 
-  echo "remove local nvim dir..."
+function fish_setup
+  apt install fonts-firacode
+  curl -fsSL https://starship.rs/install.sh | bash
+  stow -R fish
+end
+
+function alacritty_setup
+  stow -R alacritty
+end
+
+function nvim_setup 
   rm -rf "$HOME/.local/share/nvim/"
-end
-
-function clone_packer
-  echo "clone packer..."
-  mkdir -p "$HOME/.local/share/nvim/site/pack/packer/start"
-  git clone https://github.com/wbthomason/packer.nvim\
- "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
-end
-
-function uninstall_npm_packages
-  echo "uninstall global npm packages..."
   npm uninstall -g typescript typescript-language-server \
      vscode-langservers-extracted \
      vls
-end
 
-function install_npm_packages
-  echo "install global npm packages..."
   npm install -g typescript typescript-language-server \
      vscode-langservers-extracted \
      vls
+
+  mkdir -p "$HOME/.local/share/nvim/site/pack/packer/start"
+  git clone https://github.com/wbthomason/packer.nvim\
+ "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
+
+  stow -R nvim
 end
 
-function create_symlinks
-  echo "create symlinks..."
-  stow -R nvim fish alacritty
-end
 
-function install_starship
-  sudo apt install fonts-firacode
-  curl -fsSL https://starship.rs/install.sh | bash
-end
-
-# run scripts
+# requirements
+# fishshell neovim node npm
+#
+# uncomment to run scripts
+#
 #install_stow
-clean_nvim
-clone_packer
-uninstall_npm_packages
-install_npm_packages
-create_symlinks
-install_starship
+#fish_setup
+#alacritty_setup
+#nvim_setup
