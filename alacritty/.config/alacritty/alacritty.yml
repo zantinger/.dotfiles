@@ -54,9 +54,11 @@ window:
 font:
   normal:
     # Font family
-    # family: "JetBrains Mono"
-    family: "Fira Code"
+    #family: "JetBrains Mono"
+      #family: "Hack"
+    family: "FiraCode"
     style: Regular
+
 
   # Point size
   size: 11.0
