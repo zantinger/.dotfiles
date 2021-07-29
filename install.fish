@@ -27,7 +27,11 @@ function nvim_setup
      vscode-langservers-extracted \
      vls
 
+  rustup update
+  rustup component add rls rust-analysis rust-src
+  
   mkdir -p "$HOME/.local/share/nvim/site/pack/packer/start"
+
   git clone https://github.com/wbthomason/packer.nvim\
  "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
 
@@ -36,7 +40,7 @@ end
 
 
 # requirements
-# fishshell neovim node npm
+# fishshell neovim node npm rust rust-analyzer
 #
 # uncomment to run scripts
 #

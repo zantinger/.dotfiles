@@ -2,7 +2,7 @@ local nvim_lsp = require('lspconfig')
 
 -- Use a loop to conveniently both setup defined servers 
 -- and map buffer local keybindings when the language server attaches
-local servers = { "tsserver", "html","cssls", "vuels" }
+local servers = { "tsserver", "html","cssls", "vuels", "rust_analyzer", "dartls" }
 
 --Enable (broadcasting) snippet capability for completion
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -27,4 +27,28 @@ end
 
 
 local saga = require 'lspsaga'
-saga.init_lsp_saga()
+saga.init_lsp_saga {
+    error_sign = '', -- 
+    warn_sign = '#',
+    hint_sign = '#',
+    infor_sign = '#',
+}
+
+nvim_lsp.rls.setup {
+  settings = {
+    rust = {
+      unstable_features = true,
+      build_on_save = false,
+      all_features = true,
+    },
+  },
+  filetypes = { "rust", "rs" }
+}
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics, {
+        virtual_text = false
+    }
+)
+
+

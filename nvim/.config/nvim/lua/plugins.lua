@@ -22,4 +22,8 @@ return require('packer').startup(function()
   use 'mattn/emmet-vim'
   use 'dag/vim-fish'
   use 'glepnir/lspsaga.nvim'
+  use 'thosakwe/vim-flutter'
+  use 'dart-lang/dart-vim-plugin'
+  use 'airblade/vim-gitgutter'
 end)
+
