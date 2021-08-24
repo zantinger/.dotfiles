@@ -26,5 +26,7 @@ return require('packer').startup(function()
   use 'dart-lang/dart-vim-plugin'
   use 'airblade/vim-gitgutter'
   use 'reisub0/hot-reload.vim'
+  use 'SirVer/ultisnips'
+  use 'honza/vim-snippets'
 end)
 
