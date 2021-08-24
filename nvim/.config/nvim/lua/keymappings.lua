@@ -28,7 +28,7 @@ vim.api.nvim_set_keymap('n', '<Leader>gs', ':G<CR>', {noremap = false})
 vim.api.nvim_set_keymap('n', '<Leader>gf', ':diffget //2<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<Leader>gj', ':diffget //3<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-j>', '<C-d>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<C-k>', '<C-o>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<C-k>', '<C-u>', {noremap = true})
 
 -- don't loose reference 
 vim.api.nvim_set_keymap('v', '<Leader>p', '"_dP', {noremap = true})
