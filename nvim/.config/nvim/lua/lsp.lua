@@ -2,7 +2,7 @@ local nvim_lsp = require('lspconfig')
 
 -- Use a loop to conveniently both setup defined servers 
 -- and map buffer local keybindings when the language server attaches
-local servers = { "tsserver", "html","cssls", "vuels", "rust_analyzer", "dartls" }
+local servers = { "tsserver", "html","cssls", "vuels", "rust_analyzer", "dartls", "intelephense" }
 
 --Enable (broadcasting) snippet capability for completion
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -14,6 +14,8 @@ for _, lsp in ipairs(servers) do
 
   if lsp == "html" then
     filetypes = { "html", "twig" }
+  elseif lsp == "intelephense" then
+    filetypes = { "php", "twig" }
   else
     filetypes = nvim_lsp[lsp].filetypes
   end

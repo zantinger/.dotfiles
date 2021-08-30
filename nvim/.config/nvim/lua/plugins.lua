@@ -17,7 +17,7 @@ return require('packer').startup(function()
   use 'maxmellon/vim-jsx-pretty' 
   use {
       'prettier/vim-prettier', 
-      run = 'yarn install' 
+      run = 'npm install' 
   } 
   use 'mattn/emmet-vim'
   use 'dag/vim-fish'
@@ -26,5 +26,6 @@ return require('packer').startup(function()
   use 'dart-lang/dart-vim-plugin'
   use 'airblade/vim-gitgutter'
   use 'reisub0/hot-reload.vim'
+  use 'nelsyeung/twig.vim'
 end)
 
