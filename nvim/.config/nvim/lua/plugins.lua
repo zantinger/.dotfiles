@@ -27,5 +27,9 @@ return require('packer').startup(function()
   use 'airblade/vim-gitgutter'
   use 'reisub0/hot-reload.vim'
   use 'nelsyeung/twig.vim'
+  use {
+    "frenzyexists/aquarium-vim", branch = 'develop' 
+  }
+  use 'ayu-theme/ayu-vim'
 end)
 
