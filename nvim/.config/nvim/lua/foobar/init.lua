@@ -1,7 +1,7 @@
 local nvim_lsp = require('lspconfig')
 local coq = require "coq"
 
-local servers = { "tsserver", "html","cssls", "vuels", "rust_analyzer", "dartls", "intelephense" }
+local servers = { "tsserver", "html","cssls", "vuels", "rust_analyzer", "intelephense" }
 
 for _, lsp in ipairs(servers) do
   local filetypes = 0
@@ -24,6 +24,10 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+  nvim_lsp["dartls"].setup (
+    -- on_attach=require'completion'.on_attach
+    coq.lsp_ensure_capabilities({})
+  )
 -- require'lspconfig'.tsserver.setup{coq.lsp_ensure_capabilities({})}
 
 --require("coq_3p") {

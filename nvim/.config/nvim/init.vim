@@ -16,12 +16,20 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
 Plug 'nelsyeung/twig.vim'
+Plug 'thosakwe/vim-flutter'
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'nvim-lua/completion-nvim'
+Plug 'reisub0/hot-reload.vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'glepnir/lspsaga.nvim'
 " Plug 'frenzyexists/aquarium-vim', { 'branch': 'develop' }
 " Plug 'ayu-theme/ayu-vim'
 Plug 'morhetz/gruvbox'
 call plug#end()
 
 autocmd vimenter * ++nested colorscheme gruvbox
+" autocmd VimEnter * hi Normal guibg=NONE ctermbg=none
+" hi Normal guibg=NONE ctermbg=NONE
 
 " Sets
 syntax on
@@ -84,6 +92,16 @@ nnoremap <leader>fw <cmd>Telescope file_browser<cr>
 nnoremap <leader>fo <cmd>Telescope oldfiles<cr>
 nnoremap <leader>fk <cmd>Telescope keymaps<cr>
 
+" Lsp
+nnoremap <leader>ld :lua vim.lsp.buf.definition()<CR>
+nnoremap <leader>li :lua vim.lsp.buf.implementation()<CR>
+nnoremap <leader>ls :lua vim.lsp.buf.signature_help()<CR>
+nnoremap <leader>lr :lua vim.lsp.buf.references()<CR>
+nnoremap <leader>ln :lua vim.lsp.buf.rename()<CR>
+nnoremap <leader>lh :lua vim.lsp.buf.hover()<CR>
+nnoremap <leader>la :lua vim.lsp.buf.code_action()<CR>
+nnoremap <leader>lld :lua vim.lsp.diagnostic.show_line_diagnostics(); vim.lsp.util.show_line_diagnostics()<CR>
+nnoremap <leader>lg :lua vim.lsp.diagnostic.goto_next()<CR>
 
 nnoremap <C-a> <M-q>
 
