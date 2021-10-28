@@ -5,9 +5,20 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'neovim/nvim-lspconfig'
-Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+" Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
 " Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
 " Plug 'ms-jpq/coq.thirdparty', {'branch': '3p'}
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-path'
+Plug 'onsails/lspkind-nvim'
+"Plug 'L3MON4D3/LuaSnip'
+"Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'rafamadriz/friendly-snippets'
+
 Plug 'mattn/emmet-vim'
 Plug 'simrat39/symbols-outline.nvim'
 Plug 'sbdchd/neoformat'
@@ -25,10 +36,12 @@ Plug 'glepnir/lspsaga.nvim'
 " Plug 'frenzyexists/aquarium-vim', { 'branch': 'develop' }
 " Plug 'ayu-theme/ayu-vim'
 Plug 'morhetz/gruvbox'
+Plug 'kyazdani42/nvim-web-devicons'
+
 call plug#end()
 
 autocmd vimenter * ++nested colorscheme gruvbox
-" autocmd VimEnter * hi Normal guibg=NONE ctermbg=none
+autocmd VimEnter * hi Normal guibg=NONE ctermbg=none
 " hi Normal guibg=NONE ctermbg=NONE
 
 " Sets
@@ -36,6 +49,8 @@ syntax on
 filetype plugin on
 set encoding=utf8
 " set guifont=DroidSansMono\ Nerd\ Font:h11
+" set guifont=JetBrainsMono\ NF
+
 set path+=**
 set wildmode=longest,list,full
 set wildmenu
@@ -116,4 +131,5 @@ nnoremap <leader>w :w<cr>
 
 
 
+set completeopt=menu,menuone,noselect
 lua require('foobar')
