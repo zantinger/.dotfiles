@@ -17,8 +17,8 @@ for _, lsp in ipairs(servers) do
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   nvim_lsp[lsp].setup {
     coq.lsp_ensure_capabilities({
-      filetypes = filetypes,
-      capabilities = capabilities,
+      -- filetypes = filetypes,
+      -- capabilities = capabilities,
     })
     -- on_attach = require'completion'.on_attach
   }
@@ -30,13 +30,13 @@ end
   )
 -- require'lspconfig'.tsserver.setup{coq.lsp_ensure_capabilities({})}
 
---require("coq_3p") {
---  { src = "figlet", short_name = "BIG" }
---}
+require("coq_3p") {
+  { src = "figlet", short_name = "BIG" }
+}
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 vim.lsp.diagnostic.on_publish_diagnostics, {
-        virtual_text = false
+        -- virtual_text = false
     }
 )
 require('telescope').setup{

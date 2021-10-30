@@ -6,8 +6,9 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
-" Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
-" Plug 'ms-jpq/coq.thirdparty', {'branch': '3p'}
+Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
+Plug 'ms-jpq/coq.thirdparty', {'branch': '3p'}
+Plug 'kyazdani42/nvim-web-devicons'
 Plug 'mattn/emmet-vim'
 Plug 'simrat39/symbols-outline.nvim'
 Plug 'sbdchd/neoformat'
@@ -103,7 +104,7 @@ nnoremap <leader>la :lua vim.lsp.buf.code_action()<CR>
 nnoremap <leader>lld :lua vim.lsp.diagnostic.show_line_diagnostics(); vim.lsp.util.show_line_diagnostics()<CR>
 nnoremap <leader>lg :lua vim.lsp.diagnostic.goto_next()<CR>
 
-nnoremap <C-a> <M-q>
+" nnoremap <C-l> <M-q>
 
 
 " leave insert mode
