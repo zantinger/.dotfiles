@@ -38,6 +38,7 @@ Plug 'glepnir/lspsaga.nvim'
 Plug 'morhetz/gruvbox'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'ThePrimeagen/harpoon'
+Plug 'TaDaa/vimade'
 
 call plug#end()
 
@@ -86,8 +87,8 @@ set isfname+=@-@
 set cmdheight=1
 set updatetime=50
 set completeopt=menu,menuone,noselect
-highlight Cursor guifg=white guibg=black
-highlight iCursor guifg=white guibg=steelblue
+" highlight Cursor guifg=white guibg=black
+" highlight iCursor guifg=white guibg=steelblue
 set guicursor=n-v-c:block-Cursor
 set guicursor+=i:ver100-iCursor
 set guicursor+=n-v-c:blinkon0
@@ -95,6 +96,8 @@ set guicursor+=i:blinkwait10
 " let ayucolor="dark"
 " colorscheme aquarium
 " let g:aquarium_style="light"
+let g:gruvbox_invert_selection=0
+colo gruvbox
 let mapleader = " "
 
 " Maps
@@ -109,15 +112,15 @@ nnoremap <leader>fo <cmd>Telescope oldfiles<cr>
 nnoremap <leader>fk <cmd>Telescope keymaps<cr>
 
 " Lsp
-nnoremap <leader>ld :lua vim.lsp.buf.definition()<CR>
-nnoremap <leader>li :lua vim.lsp.buf.implementation()<CR>
-nnoremap <leader>ls :lua vim.lsp.buf.signature_help()<CR>
-nnoremap <leader>lr :lua vim.lsp.buf.references()<CR>
-nnoremap <leader>ln :lua vim.lsp.buf.rename()<CR>
-nnoremap <leader>lh :lua vim.lsp.buf.hover()<CR>
-nnoremap <leader>la :lua vim.lsp.buf.code_action()<CR>
-nnoremap <leader>lld :lua vim.lsp.diagnostic.show_line_diagnostics(); vim.lsp.util.show_line_diagnostics()<CR>
-nnoremap <leader>lg :lua vim.lsp.diagnostic.goto_next()<CR>
+nnoremap <leader>vd :lua vim.lsp.buf.definition()<CR>
+nnoremap <leader>vi :lua vim.lsp.buf.implementation()<CR>
+nnoremap <leader>vs :lua vim.lsp.buf.signature_help()<CR>
+nnoremap <leader>vr :lua vim.lsp.buf.references()<CR>
+nnoremap <leader>vn :lua vim.lsp.buf.rename()<CR>
+nnoremap <leader>vh :lua vim.lsp.buf.hover()<CR>
+nnoremap <leader>va :lua vim.lsp.buf.code_action()<CR>
+nnoremap <leader>vld :lua vim.lsp.diagnostic.show_line_diagnostics(); vim.lsp.util.show_line_diagnostics()<CR>
+nnoremap <leader>vg :lua vim.lsp.diagnostic.goto_next()<CR>
 
 nnoremap <C-a> <M-q>
 
@@ -131,6 +134,14 @@ nnoremap <leader>w :w<cr>
 " navigation
 nnoremap <C-j> 30j 
 nnoremap <C-k> 30k 
+nnoremap <leader>h <C-w><Left>
+nnoremap <leader>j <C-w><Down>
+nnoremap <leader>k <C-w><Up>
+nnoremap <leader>l <C-w><Right>
+
+" sizing
+nnoremap <leader>m <C-w><Bar>
+nnoremap <leader>n <C-w>=
 
 " harpoon
 nnoremap <leader>a :lua require("harpoon.mark").add_file()<CR>
