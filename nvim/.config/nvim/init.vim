@@ -40,6 +40,8 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'ThePrimeagen/harpoon'
 Plug 'TaDaa/vimade'
 
+Plug 'OmniSharp/omnisharp-vim'
+
 call plug#end()
 
 autocmd vimenter * ++nested colorscheme gruvbox
@@ -99,6 +101,8 @@ set guicursor+=i:blinkwait10
 let g:gruvbox_invert_selection=0
 colo gruvbox
 let mapleader = " "
+
+let g:OmniSharp_server_stdio = 1
 
 " Maps
 "
