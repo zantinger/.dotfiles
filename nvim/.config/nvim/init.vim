@@ -38,15 +38,17 @@ Plug 'glepnir/lspsaga.nvim'
 Plug 'morhetz/gruvbox'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'ThePrimeagen/harpoon'
-Plug 'TaDaa/vimade'
+" Plug 'TaDaa/vimade'
 
 Plug 'OmniSharp/omnisharp-vim'
 
 call plug#end()
 
+" command Exec set splitright | vnew | set filetype=sh | read !sh #
+
 autocmd vimenter * ++nested colorscheme gruvbox
 autocmd VimEnter * hi Normal guibg=NONE ctermbg=none
-" hi Normal guibg=NONE ctermbg=NONE
+hi Normal guibg=NONE ctermbg=NONE
 
 " Sets
 syntax on
@@ -98,8 +100,8 @@ set guicursor+=i:blinkwait10
 " let ayucolor="dark"
 " colorscheme aquarium
 " let g:aquarium_style="light"
-let g:gruvbox_invert_selection=0
-colo gruvbox
+" let g:gruvbox_invert_selection=0
+" colo gruvbox
 let mapleader = " "
 
 let g:OmniSharp_server_stdio = 1
@@ -161,6 +163,8 @@ nnoremap <leader>te :lua require("harpoon.term").gotoTerminal(2)<CR>
 nnoremap <leader>cu :lua require("harpoon.term").sendCommand(1, 1)<CR>
 nnoremap <leader>ce :lua require("harpoon.term").sendCommand(1, 2)<CR>
 
+" emmet
+let g:user_emmet_leader_key = '<leader><leader>'
 
 set completeopt=menu,menuone,noselect
 lua require('foobar')
