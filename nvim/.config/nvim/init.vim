@@ -1,54 +1,53 @@
 " Plugins
 call plug#begin('~/.vim/plugged')
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+
 Plug 'neovim/nvim-lspconfig'
-" Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
-" Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
-" Plug 'ms-jpq/coq.thirdparty', {'branch': '3p'}
+" Plug 'glepnir/lspsaga.nvim'
+
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-path'
 Plug 'onsails/lspkind-nvim'
-"Plug 'L3MON4D3/LuaSnip'
-"Plug 'saadparwaiz1/cmp_luasnip'
-Plug 'hrsh7th/cmp-vsnip'
-Plug 'hrsh7th/vim-vsnip'
-Plug 'rafamadriz/friendly-snippets'
 
 Plug 'mattn/emmet-vim'
-Plug 'simrat39/symbols-outline.nvim'
+
+" Plug 'simrat39/symbols-outline.nvim'
+
 Plug 'sbdchd/neoformat'
+
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-unimpaired'
+
 Plug 'vim-airline/vim-airline'
+
 Plug 'nelsyeung/twig.vim'
 Plug 'thosakwe/vim-flutter'
 Plug 'dart-lang/dart-vim-plugin'
-Plug 'nvim-lua/completion-nvim'
 Plug 'reisub0/hot-reload.vim'
+Plug 'hkupty/iron.nvim'
+
 Plug 'jiangmiao/auto-pairs'
-Plug 'glepnir/lspsaga.nvim'
-" Plug 'frenzyexists/aquarium-vim', { 'branch': 'develop' }
-" Plug 'ayu-theme/ayu-vim'
+
+Plug 'frenzyexists/aquarium-vim', { 'branch': 'develop' }
+Plug 'ayu-theme/ayu-vim'
 Plug 'morhetz/gruvbox'
 Plug 'kyazdani42/nvim-web-devicons'
+
 Plug 'ThePrimeagen/harpoon'
-" Plug 'TaDaa/vimade'
-
-Plug 'OmniSharp/omnisharp-vim'
-
+" " Plug 'TaDaa/vimade'
 call plug#end()
 
 " command Exec set splitright | vnew | set filetype=sh | read !sh #
 
-autocmd vimenter * ++nested colorscheme gruvbox
-autocmd VimEnter * hi Normal guibg=NONE ctermbg=none
-hi Normal guibg=NONE ctermbg=NONE
+" autocmd vimenter * ++nested colorscheme gruvbox
+" autocmd VimEnter * hi Normal guibg=NONE ctermbg=none
+" hi Normal guibg=NONE ctermbg=NONE
 
 " Sets
 syntax on
@@ -97,14 +96,12 @@ set guicursor=n-v-c:block-Cursor
 set guicursor+=i:ver100-iCursor
 set guicursor+=n-v-c:blinkon0
 set guicursor+=i:blinkwait10
-" let ayucolor="dark"
-" colorscheme aquarium
-" let g:aquarium_style="light"
-" let g:gruvbox_invert_selection=0
-" colo gruvbox
+let ayucolor="light"
+let g:aquarium_style="light"
+let g:gruvbox_invert_selection=0
+colo gruvbox
 let mapleader = " "
 
-let g:OmniSharp_server_stdio = 1
 
 " Maps
 "
@@ -113,7 +110,7 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-nnoremap <leader>fw <cmd>Telescope file_browser<cr>
+nnoremap <leader>fw <cmd>Telescope find_files<cr>
 nnoremap <leader>fo <cmd>Telescope oldfiles<cr>
 nnoremap <leader>fk <cmd>Telescope keymaps<cr>
 
@@ -162,6 +159,8 @@ nnoremap <leader>tu :lua require("harpoon.term").gotoTerminal(1)<CR>
 nnoremap <leader>te :lua require("harpoon.term").gotoTerminal(2)<CR>
 nnoremap <leader>cu :lua require("harpoon.term").sendCommand(1, 1)<CR>
 nnoremap <leader>ce :lua require("harpoon.term").sendCommand(1, 2)<CR>
+
+tnoremap <Esc> <C-\><C-n>
 
 " emmet
 let g:user_emmet_leader_key = '<leader><leader>'
