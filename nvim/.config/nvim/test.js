@@ -1,7 +1,9 @@
-const foo = function(a,b,c) {
+const foo = function (a, b, c) {
   return null;
-}
+};
 
-const bar = {a: 0}
+var bar = { a: 0 };
 
-bar.a
+bar.a;
+
+document.getElementById()

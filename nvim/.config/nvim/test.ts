@@ -1,0 +1,2 @@
+import {foobar} from './example'
+

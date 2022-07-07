@@ -5,105 +5,49 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
-local iron = require("iron.core")
-
-iron.setup {
-  config = {
-    -- If iron should expose `<plug>(...)` mappings for the plugins
-    should_map_plug = false,
-    -- Whether a repl should be discarded or not
-    scratch_repl = true,
-    -- Your repl definitions come here
-    repl_definition = {
-      sh = {
-        command = {"zsh"}
-      }
-    },
-    repl_open_cmd = require('iron.view').curry.bottom(40),
-    -- how the REPL window will be opened, the default is opening
-    -- a float window of height 40 at the bottom.
-  },
-  -- Iron doesn't set keymaps by default anymore. Set them here
-  -- or use `should_map_plug = true` and map from you vim files
-  keymaps = {
-    send_motion = "<space>sc",
-    visual_send = "<space>sc",
-    send_file = "<space>sf",
-    send_line = "<space>sl",
-    send_mark = "<space>sm",
-    mark_motion = "<space>mc",
-    mark_visual = "<space>mc",
-    remove_mark = "<space>md",
-    cr = "<space>s<cr>",
-    interrupt = "<space>s<space>",
-    exit = "<space>sq",
-    clear = "<space>cl",
-  },
-  -- If the highlight is on, you can change how it looks
-  -- For the available options, check nvim_set_hl
-  highlight = {
-    italic = true
-  }
-}
-
 local nvim_lsp = require('lspconfig')
-  local cmp = require'cmp'
+  -- local cmp = require'cmp'
 
-  cmp.setup({
-    snippet = {
-      expand = function(args)
-        vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-        -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-    --     -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-    --     -- require'snippy'.expand_snippet(args.body) -- For `snippy` users.
-      end,
-    },
-    formatting = {
-  format = require("lspkind").cmp_format({with_text = true, menu = ({
-      buffer = "[Buffer]",
-      nvim_lsp = "[LSP]",
-      luasnip = "[LuaSnip]",
-      nvim_lua = "[Lua]",
-      latex_symbols = "[Latex]",
-    })}),
-},
+  -- cmp.setup({
+  --   snippet = {
+  --     expand = function(args)
+  --       vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+  --       -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+  --   --     -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+  --   --     -- require'snippy'.expand_snippet(args.body) -- For `snippy` users.
+  --     end,
+  --   },
+  --   formatting = {
+  -- format = require("lspkind").cmp_format({with_text = true, menu = ({
+  --     buffer = "[Buffer]",
+  --     nvim_lsp = "[LSP]",
+  --     luasnip = "[LuaSnip]",
+  --     nvim_lua = "[Lua]",
+  --     latex_symbols = "[Latex]",
+  --   })}),
+-- },
 
-    mapping = {
-      ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-      ['<C-f>'] = cmp.mapping.scroll_docs(4),
-      ['<C-Space>'] = cmp.mapping.complete(),
-      ['<C-e>'] = cmp.mapping.close(),
-      ['<C-y>'] = cmp.config.disable, -- If you want to remove the default `<C-y>` mapping, You can specify `cmp.config.disable` value.
-      ['<CR>'] = cmp.mapping.confirm({ select = true }),
-    },
-    sources = cmp.config.sources({
-      { name = 'vsnip' }, -- For vsnip users.
-      { name = 'nvim_lsp', keyword_length = 3},
-      -- { name = 'luasnip' }, -- For luasnip users.
-      -- { name = 'ultisnips' }, -- For ultisnips users.
-      -- { name = 'snippy' }, -- For snippy users.
-      { name = 'buffer', keyword_length = 4 },
-    })
-  })
+  --   mapping = {
+  --     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+  --     ['<C-f>'] = cmp.mapping.scroll_docs(4),
+  --     ['<C-Space>'] = cmp.mapping.complete(),
+  --     ['<C-e>'] = cmp.mapping.close(),
+  --     ['<C-y>'] = cmp.config.disable, -- If you want to remove the default `<C-y>` mapping, You can specify `cmp.config.disable` value.
+  --     ['<CR>'] = cmp.mapping.confirm({ select = true }),
+  --   },
+  --   sources = cmp.config.sources({
+  --     { name = 'vsnip' }, -- For vsnip users.
+  --     { name = 'nvim_lsp', keyword_length = 3},
+  --     -- { name = 'luasnip' }, -- For luasnip users.
+  --     -- { name = 'ultisnips' }, -- For ultisnips users.
+  --     -- { name = 'snippy' }, -- For snippy users.
+  --     { name = 'buffer', keyword_length = 4 },
+  --   })
+  -- })
 
-
--- local coq = require "coq"
 
 local servers = { "jedi_language_server", "tsserver", "html","cssls", "vuels", "rust_analyzer", "intelephense", "dartls" }
-
-  local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-  -- require('lspconfig')[%YOUR_LSP_SERVER%].setup {
-  --   capabilities = capabilities
-  -- }
-
-  nvim_lsp.omnisharp.setup {
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-    on_attach = function(_, bufnr)
-      vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-    end,
-    cmd = { "/Users/michael_zant/.cache/omnisharp-vim/omnisharp-roslyn/run", "--languageserver" , "--hostPID", tostring(pid) },
-    -- cmd = { "/path/to/omnisharp-roslyn/bin/omnisharp/run", "--languageserver" , "--hostPID", tostring(pid) },
-  }
+-- local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 for _, lsp in ipairs(servers) do
   local filetypes = 0
@@ -120,7 +64,7 @@ for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     -- coq.lsp_ensure_capabilities({
     --   filetypes = filetypes,
-      capabilities = capabilities,
+      -- capabilities = capabilities,
     -- })
     -- on_attach = require'completion'.on_attach
   }

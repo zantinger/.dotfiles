@@ -1,3 +1,5 @@
+let g:ale_completion_enabled = 1
+set omnifunc=ale#completion#OmniFunc
 " Plugins
 call plug#begin('~/.vim/plugged')
 Plug 'nvim-telescope/telescope.nvim'
@@ -8,13 +10,13 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'neovim/nvim-lspconfig'
 " Plug 'glepnir/lspsaga.nvim'
 
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-path'
-Plug 'onsails/lspkind-nvim'
+" Plug 'hrsh7th/cmp-nvim-lsp'
+" Plug 'hrsh7th/cmp-buffer'
+" Plug 'hrsh7th/nvim-cmp'
+" Plug 'hrsh7th/cmp-path'
+" Plug 'onsails/lspkind-nvim'
 
-Plug 'mattn/emmet-vim'
+" Plug 'mattn/emmet-vim'
 
 " Plug 'simrat39/symbols-outline.nvim'
 
@@ -22,15 +24,14 @@ Plug 'sbdchd/neoformat'
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-unimpaired'
+" Plug 'tpope/vim-unimpaired'
 
 Plug 'vim-airline/vim-airline'
 
-Plug 'nelsyeung/twig.vim'
-Plug 'thosakwe/vim-flutter'
-Plug 'dart-lang/dart-vim-plugin'
-Plug 'reisub0/hot-reload.vim'
-Plug 'hkupty/iron.nvim'
+" Plug 'nelsyeung/twig.vim'
+" Plug 'thosakwe/vim-flutter'
+" Plug 'dart-lang/dart-vim-plugin'
+" Plug 'reisub0/hot-reload.vim'
 
 Plug 'jiangmiao/auto-pairs'
 
@@ -41,6 +42,9 @@ Plug 'kyazdani42/nvim-web-devicons'
 
 Plug 'ThePrimeagen/harpoon'
 " " Plug 'TaDaa/vimade'
+Plug 'dense-analysis/ale'
+
+Plug 'LudoPinelli/comment-box.nvim'
 call plug#end()
 
 " command Exec set splitright | vnew | set filetype=sh | read !sh #
@@ -101,6 +105,13 @@ let g:aquarium_style="light"
 let g:gruvbox_invert_selection=0
 colo gruvbox
 let mapleader = " "
+
+let g:ale_fixers = {
+\   'javascript': ['prettier'],
+\   'css': ['prettier'],
+\}
+
+" let g:ale_disable_lsp = 1
 
 
 " Maps
@@ -166,4 +177,4 @@ tnoremap <Esc> <C-\><C-n>
 let g:user_emmet_leader_key = '<leader><leader>'
 
 set completeopt=menu,menuone,noselect
-lua require('foobar')
+lua require('new')
