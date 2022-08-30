@@ -2,7 +2,7 @@ local nvim_lsp = require('lspconfig')
 
 -- Use a loop to conveniently both setup defined servers 
 -- and map buffer local keybindings when the language server attaches
-local servers = { "tsserver", "html","cssls", "vuels", "rust_analyzer", "dartls", "intelephense" }
+local servers = {  "jedi_language_server", "tsserver", "html","cssls", "vuels", "rust_analyzer", "dartls", "intelephense" }
 
 --Enable (broadcasting) snippet capability for completion
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -41,6 +41,8 @@ nvim_lsp.rls.setup {
   },
   filetypes = { "rust", "rs" }
 }
+
+-- nvim_lsp.jedi_language_server.setup{}
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
