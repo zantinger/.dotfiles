@@ -6,13 +6,16 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 
 Plug 'neovim/nvim-lspconfig'
-" Plug 'glepnir/lspsaga.nvim'
+Plug 'glepnir/lspsaga.nvim'
 
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-path'
 Plug 'onsails/lspkind-nvim'
+
+Plug 'L3MON4D3/LuaSnip'
+Plug 'saadparwaiz1/cmp_luasnip'
 
 Plug 'mattn/emmet-vim'
 
@@ -135,8 +138,8 @@ inoremap jk <esc>
 nnoremap <leader>w :w<cr>
 
 " navigation
-nnoremap <C-j> 30j 
-nnoremap <C-k> 30k 
+" nnoremap <C-j> 30j 
+" nnoremap <C-k> 30k 
 nnoremap <leader>h <C-w><Left>
 nnoremap <leader>j <C-w><Down>
 nnoremap <leader>k <C-w><Up>
