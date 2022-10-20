@@ -44,20 +44,31 @@ Plug 'kyazdani42/nvim-web-devicons'
 
 Plug 'ThePrimeagen/harpoon'
 " " Plug 'TaDaa/vimade'
+Plug 'vimwiki/vimwiki'
 call plug#end()
 
 " command Exec set splitright | vnew | set filetype=sh | read !sh #
 
 " autocmd vimenter * ++nested colorscheme gruvbox
-" autocmd VimEnter * hi Normal guibg=NONE ctermbg=none
-" hi Normal guibg=NONE ctermbg=NONE
+autocmd VimEnter * hi Normal guibg=NONE ctermbg=none
+hi Normal guibg=NONE ctermbg=NONE
 
 " Sets
+set nocompatible
 syntax on
 filetype plugin on
 set encoding=utf8
 " set guifont=DroidSansMono\ Nerd\ Font:h11
 " set guifont=JetBrainsMono\ NF
+
+let g:vimwiki_list = [{
+\ 'path': '~/vimwiki/default', 
+\ 'template_path': '~/vimwiki/templates/',
+\ 'template_default': 'default_template',
+\ 'template_ext': '.html'
+\ },{
+\ 'path': '~/vimwiki/itools'
+\ }]
 
 set path+=**
 set wildmode=longest,list,full
@@ -93,16 +104,17 @@ set isfname+=@-@
 set cmdheight=1
 set updatetime=50
 set completeopt=menu,menuone,noselect
-" highlight Cursor guifg=white guibg=black
-" highlight iCursor guifg=white guibg=steelblue
+highlight Cursor guifg=white guibg=black
+highlight iCursor guifg=white guibg=steelblue
 set guicursor=n-v-c:block-Cursor
 set guicursor+=i:ver100-iCursor
 set guicursor+=n-v-c:blinkon0
 set guicursor+=i:blinkwait10
-let ayucolor="light"
-let g:aquarium_style="light"
+let ayucolor="mirage"
+" let g:aquarium_style="light"
 let g:gruvbox_invert_selection=0
-colo gruvbox
+" colo gruvbox
+colo ayu
 let mapleader = " "
 
 
@@ -116,6 +128,8 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fw <cmd>Telescope find_files<cr>
 nnoremap <leader>fo <cmd>Telescope oldfiles<cr>
 nnoremap <leader>fk <cmd>Telescope keymaps<cr>
+nnoremap <leader>wfg :lua require("telescope.builtin").live_grep({cwd = '~/vimwiki'})<CR>
+nnoremap <leader>wff :lua require("telescope.builtin").find_files({cwd = '~/vimwiki'})<CR>
 
 " Lsp
 nnoremap <leader>vd :lua vim.lsp.buf.definition()<CR>
@@ -137,6 +151,10 @@ inoremap jk <esc>
 " fast save file
 nnoremap <leader>w :w<cr>
 
+" don't lose yanked text
+vnoremap <leader>p "_dP
+
+
 " navigation
 " nnoremap <C-j> 30j 
 " nnoremap <C-k> 30k 
@@ -145,19 +163,23 @@ nnoremap <leader>j <C-w><Down>
 nnoremap <leader>k <C-w><Up>
 nnoremap <leader>l <C-w><Right>
 
+nnoremap <C-j> <PageDown>10k
+nnoremap <C-k> <PageUp>10k
+
 " sizing
 nnoremap <leader>m <C-w><Bar>
 nnoremap <leader>n <C-w>=
 
 " harpoon
-nnoremap <leader>a :lua require("harpoon.mark").add_file()<CR>
-nnoremap <C-e> :lua require("harpoon.ui").toggle_quick_menu()<CR>
+" 2 x leader for faster reaction
+nnoremap <leader><leader>a :lua require("harpoon.mark").add_file()<CR>
+nnoremap <leader><leader>t :lua require("harpoon.ui").toggle_quick_menu()<CR>
 nnoremap <C-y> :lua require("harpoon.cmd-ui").toggle_quick_menu()<CR>
 
-nnoremap <C-h> :lua require("harpoon.ui").nav_file(1)<CR>
-nnoremap <C-t> :lua require("harpoon.ui").nav_file(2)<CR>
-nnoremap <C-n> :lua require("harpoon.ui").nav_file(3)<CR>
-nnoremap <C-s> :lua require("harpoon.ui").nav_file(4)<CR>
+nnoremap <leader><leader>h :lua require("harpoon.ui").nav_file(1)<CR>
+nnoremap <leader><leader>j :lua require("harpoon.ui").nav_file(2)<CR>
+nnoremap <leader><leader>k :lua require("harpoon.ui").nav_file(3)<CR>
+nnoremap <leader><leader>l :lua require("harpoon.ui").nav_file(4)<CR>
 nnoremap <leader>tu :lua require("harpoon.term").gotoTerminal(1)<CR>
 nnoremap <leader>te :lua require("harpoon.term").gotoTerminal(2)<CR>
 nnoremap <leader>cu :lua require("harpoon.term").sendCommand(1, 1)<CR>
