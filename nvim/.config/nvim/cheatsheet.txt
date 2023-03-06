@@ -1,0 +1,27 @@
+## Telescope @grep @find-files
+Grep for string and filter files | <leader>ps
+
+## Telescope @grep @find-files
+Grep for string under cursor and filter files | <leader>pw
+
+## Telescope @git-files @find-files
+List all git files | <C-p>
+
+## Telescope @find-files
+List all files | <leader>pf
+
+## Telescope @buffers @find-files
+List all buffers | <leader>pb
+
+## Telescope @help-tags
+Help-tags | <leader>vh
+
+## nvim @move @yank @visual-mode
+Move selection up (visual mode)| J
+
+## nvim @move @yank @visual-mode
+Move selection down (visual mode)| K
+
+## nvim @paste
+Paste form register without loosing value | <leader>p
+
