@@ -4,6 +4,8 @@
 stow -D nvim
 stow nvim
 
+# TODO: install packer.nvim
+
 # Install tmux config
 stow -D tmux
 stow tmux

@@ -43,4 +43,40 @@ vim.opt.shortmess:append("c")
 
 vim.g.mapleader = " "
 
--- vim.g.neoformat_run_all_formatters = 1
+-- Theme
+vim.o.background = "dark" -- "light"
+vim.cmd([[colorscheme gruvbox]])
+
+vim.g.neoformat_basic_format_align = 1
+vim.g.neoformat_basic_format_retab = 1
+vim.g.neoformat_basic_format_trim = 1
+vim.g.neoformat_run_all_formatters = 1
+
+-- Vimwiki
+vim.g.vimwiki_list = {
+  { path = '~/Google Drive/Meine Ablage/vimwikitest/', 
+  -- syntax = 'markdown', 
+  -- ext = 'md',
+  path_html = '~/Google Drive/Meine Ablage/vimwikitest/html/' 
+},
+  { path = '~/my_docs/', name = 'mydocs', ext = '.mdox' }
+}
+vim.o.compatible = false
+vim.cmd('filetype plugin on')
+vim.cmd('syntax enable')
+
+
+vim.opt.conceallevel = 1
+
+vim.api.nvim_command('set tags+=tags')
+
+vim.api.nvim_create_user_command(
+  'Exec',
+  function()
+    vim.opt.splitright = true
+    vim.cmd('vnew')
+    vim.bo.filetype = 'sh'
+    vim.cmd('read !sh #')
+  end,
+  {}
+)

@@ -1,11 +1,11 @@
 
 # Configuration for Alacritty, the GPU enhanced terminal emulator.
-shell:
-  program: /bin/bash
-  args:
-    - -l
-      #    - -c
-      #    - "tmux"
+# shell:
+#   program: /bin/bash
+#   args:
+#     - -l
+#       #    - -c
+#       #    - "tmux"
 
 window:
   # Window padding (changes require restart)
@@ -56,12 +56,12 @@ font:
     # Font family
     #family: "JetBrains Mono"
       #family: "Hack"
-    family: "FiraCode"
+    family: "FiraCode Nerd Font"
     style: Regular
 
 
   # Point size
-  size: 11.0
+  size: 16.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
