@@ -21,6 +21,9 @@ end)
 nnoremap("<leader>vh", function()
     require('telescope.builtin').help_tags()
 end)
+nnoremap("<leader>pt", function()
+    require('telescope.builtin').tags()
+end)
 
 -- TODO
 -- nnoremap("<leader>vrc", function()

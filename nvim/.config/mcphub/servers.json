@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "testserver": {
+      "command": "echo",
+      "args": ["Hello, MCPHub!"]
+    }
+  }
+}
