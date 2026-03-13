@@ -2,11 +2,21 @@
 
 ## tmux (Prefix = Ctrl-a)
 
-tmux | Prefix + v     | Floating nvim popup öffnen
+tmux | Prefix + |     | Pane vertikal teilen
+tmux | Prefix + -     | Pane horizontal teilen
 tmux | Prefix + h/j/k/l | Pane wechseln (links/unten/oben/rechts)
+tmux | Prefix + z     | Pane zoomen (fullscreen toggle)
+tmux | Prefix + x     | Pane schließen
+tmux | Prefix + c     | Neues Window
+tmux | Prefix + ,     | Window umbenennen
 tmux | Prefix + g/f/d/s | Window 1/2/3/4 auswählen
 tmux | Prefix + ^     | Letztes Window
+tmux | Prefix + n / p | Nächstes / Vorheriges Window
+tmux | Prefix + T     | Session wechseln (sesh + fzf)
+tmux | Prefix + v     | Floating nvim popup öffnen
 tmux | Prefix + ?     | Cheatsheet anzeigen
+tmux | Prefix + Ctrl-s | Session speichern (resurrect)
+tmux | Prefix + Ctrl-r | Session wiederherstellen (resurrect)
 
 ## Neovim (Leader = Space)
 
