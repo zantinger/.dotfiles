@@ -1,1 +1,2 @@
-require('zantinger')
+require("zantinger")
+require("config.lazy")

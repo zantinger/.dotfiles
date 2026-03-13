@@ -1,32 +1,38 @@
 # .dotfiles
 
+Managed with [GNU Stow](https://www.gnu.org/software/stow/).
 
-install nerd fonts
-https://gist.github.com/davidteren/898f2dcccd42d9f8680ec69a3a5d350e
+## Setup
 
-i.e.
-```
-brew tap homebrew/cask-fonts
-brew install --cask font-fira-code-nerd-font
+```bash
+./install
 ```
 
+## Modules
 
-tmux
+| Module | Description |
+|---|---|
+| nvim | Neovim config (lazy.nvim) |
+| kitty | Kitty terminal |
+| tmux | tmux config |
+| fish | Fish shell |
+| scripts | Helper scripts |
 
-Theme
-- https://github.com/egel/tmux-gruvbox?tab=readme-ov-file
+## Neovim
 
-Plugin Manager
-- https://github.com/tmux-plugins/tpm?tab=readme-ov-file
+Plugin Manager: [lazy.nvim](https://github.com/folke/lazy.nvim)
 
-Install Plugin Manual
-- https://github.com/tmux-plugins/tpm/blob/master/docs/managing_plugins_via_cmd_line.managing_plugins_via_cmd_line
-- 
+Plugins:
+- Telescope (fuzzy finder)
+- Markdown Preview
+- Catppuccin, TokyoNight, Gruvbox (themes, default: Catppuccin Frappé)
 
+## tmux
 
-nvim
+- Plugin Manager: [tpm](https://github.com/tmux-plugins/tpm)
+- Theme: [tmux-gruvbox](https://github.com/egel/tmux-gruvbox)
+- `Prefix + v` → Floating nvim popup
 
-install global with npm  
-typescript typescript-language-server
-prettier
+## Prerequisites
 
+- [Nerd Fonts](https://gist.github.com/davidteren/898f2dcccd42d9f8680ec69a3a5d350e): `brew install --cask font-fira-code-nerd-font`

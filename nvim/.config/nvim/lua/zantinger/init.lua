@@ -1,2 +1,2 @@
-require('zantinger.set')
-require('zantinger.packer')
+require("zantinger.set")
+require("zantinger.remap")
