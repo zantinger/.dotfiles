@@ -9,3 +9,7 @@ stow nvim
 # Install tmux config
 stow -D tmux
 stow tmux
+
+# Install Ghostty config
+stow -D ghostty
+stow ghostty

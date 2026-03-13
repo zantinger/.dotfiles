@@ -13,7 +13,8 @@ Managed with [GNU Stow](https://www.gnu.org/software/stow/).
 | Module | Description |
 |---|---|
 | nvim | Neovim config (lazy.nvim) |
-| kitty | Kitty terminal (Catppuccin Frappé) |
+| ghostty | Ghostty terminal (Catppuccin Frappé) |
+| kitty | Kitty terminal (Backup, Catppuccin Frappé) |
 | tmux | tmux config (Catppuccin Frappé) |
 | scripts | Helper scripts |
 
@@ -40,7 +41,13 @@ Plugins:
 - `Prefix + T` → Session switcher (sesh)
 - `Prefix + ?` → Keybindings Cheatsheet
 
-## Kitty
+## Ghostty
+
+- Theme: Catppuccin Frappé (built-in)
+- Font: FiraCode Nerd Font (13pt)
+- Padding: 10px
+
+## Kitty (Backup)
 
 - Theme: Catppuccin Frappé
 - Font: FiraCode Nerd Font (13pt)
@@ -50,6 +57,27 @@ Plugins:
 
 Alle Keybindings sind in `cheatsheet.md` dokumentiert.
 Zugriff via `keys` (Terminal-Alias) oder `Prefix + ?` (tmux popup).
+
+## Known Issues
+
+### Screen flicker with Claude Code in tmux + Kitty
+
+Claude Code erzeugt 4.000-6.700 Scroll-Events/Sekunde beim Streaming von Output ([Issue #9935](https://github.com/anthropics/claude-code/issues/9935)). Das verursacht ein kurzes Hoch-/Runter-Scrollen des Bildschirms in tmux. Das Problem tritt nur in tmux auf, nicht in Kitty direkt.
+
+Getestete Fixes (ohne Erfolg):
+- `allow-passthrough on`, `terminal-features Sync`, `extended-keys on`
+- `placement_strategy top-left`, `resize_in_steps yes`, `sync_to_monitor no` (Kitty)
+- Deaktivieren aller tmux-Plugins
+- Minimale tmux-Config
+
+**Lösung:** Ghostty – Das Problem tritt mit Ghostty nicht auf.
+
+Alternativer Workaround: [claude-chill](https://github.com/davidbeesley/claude-chill) – ein PTY-Proxy der Claude Code Output puffert und nur differentielle Updates sendet.
+
+```bash
+cargo install --git https://github.com/davidbeesley/claude-chill
+claude-chill claude
+```
 
 ## Prerequisites
 
